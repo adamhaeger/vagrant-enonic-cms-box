@@ -1,4 +1,6 @@
-# Vagrant development box
+# This might become the first open source vagrant/saltstack base box for enonic cms.
+
+Original Readme:
 
 This box is a starting point for new projects. This box has been tested on OSX, it should work on Linux and it might work on Windows.
 
