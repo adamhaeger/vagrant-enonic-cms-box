@@ -1,4 +1,6 @@
-# This might become the first open source vagrant/saltstack base box for enonic cms.
+# Vagrant Enonic CMS box
+
+This might become the first open source vagrant/saltstack base box for enonic cms.
 
 Original Readme:
 
