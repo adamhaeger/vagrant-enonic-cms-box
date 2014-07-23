@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server port="8005" shutdown="SHUTDOWN">
+
+    <!-- Main catalina service. -->
+    <Service name="Catalina">
+
+        <!-- Http connector at port 8080. -->
+        <Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443"/>
+
+        <!-- Define an AJP 1.3 Connector at port 8009. -->
+        <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
+
+        <!-- Main catalina engine. -->
+        <Engine name="catalina" defaultHost="localhost">
+
+            <!-- Localhost configuration. -->
+            <Host name="localhost" unpackWARs="false" autoDeploy="false" deployOnStartup="false">
+
+                <!-- Enonic CMS webapp. -->
+                <Context path="/" docBase="/var/lib/tomcat7/webapps/ROOT.war">
+
+                    <!-- H2 embedded database. -->
+                    <Resource name="jdbc/cms" auth="Container" type="javax.sql.DataSource" maxActive="100" maxIdle="30"
+                              maxWait="10000"
+                              username="cmsuser" password="password" driverClassName="com.mysql.jdbc.Driver"
+                              url="jdbc:mysql://localhost:3306/cmsdb" />
+                </Context>
+
+            </Host>
+
+        </Engine>
+
+    </Service>
+
+</Server>

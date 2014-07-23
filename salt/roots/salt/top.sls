@@ -1,9 +1,13 @@
 base:
   '*':
-    - python
-    - ruby
-    - nodejs
+  #  - python
+  #  - ruby
+  #  - nodejs
     - jdk7
     - wget
     - curl
-    - tree
+  #  - tree
+    - tomcat7.tomcat7
+    - mysql.mysql
+    - enonic.enonic
+    - vim
