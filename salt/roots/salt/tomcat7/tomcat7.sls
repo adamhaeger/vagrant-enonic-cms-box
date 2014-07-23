@@ -33,7 +33,6 @@ tomcat_cmshomeconfig:
         - name: /usr/share/tomcat7/bin/catalina.sh
         - text: export JAVA_OPTS="-Xmx1024m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms/home"
 
-
 getdbdriver:
     cmd.run:
     - creates: /vagrant/mysql-connector.jar

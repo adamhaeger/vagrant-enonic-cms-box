@@ -14,7 +14,7 @@
         <Engine name="catalina" defaultHost="localhost">
 
             <!-- Localhost configuration. -->
-            <Host name="localhost" unpackWARs="false" autoDeploy="false" deployOnStartup="false">
+            <Host name="localhost" unpackWARs="true" autoDeploy="false" deployOnStartup="false">
 
                 <!-- Enonic CMS webapp. -->
                 <Context path="/" docBase="/var/lib/tomcat7/webapps/ROOT.war">
