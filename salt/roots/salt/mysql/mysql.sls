@@ -28,6 +28,7 @@ cmsuser:
 cmsdb:
   mysql_database.present:
     - character_set: utf8
+    - lower_case_table_names : 1
     - collate: utf8_danish_ci
     - require:
       - pkg: python-mysqldb
