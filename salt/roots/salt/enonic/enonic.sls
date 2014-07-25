@@ -1,11 +1,13 @@
 enonic:
   cmd.run:
     - creates: /var/lib/tomcat7/webapps/ROOT.war
+    #- unless: [ ! exit -f /var/lib/tomcat7/webapps/ROOT.war ]
     - name: |
-        #curl -O curl -L -o enonic-4.7.6.zip  https://www.dropbox.com/s/fkztrltqb5qa6wh/cms-ce-distro-4.7.6.zip?dl=1
-        #unzip -u enonic-4.7.6.zip && mv cms-ce-distro-4.7.6 cms
+        curl -O curl -L -o enonic-4.7.6.zip  https://www.dropbox.com/s/fkztrltqb5qa6wh/cms-ce-distro-4.7.6.zip?dl=1
+        unzip -u enonic-4.7.6.zip && mv cms-ce-distro-4.7.6 cms
         sudo cp /vagrant/cms/webapp/cms.war /var/lib/tomcat7/webapps
         sudo mv /var/lib/tomcat7/webapps/cms.war /var/lib/tomcat7/webapps/ROOT.war
+        sudo rm enonic-4.7.6.zip
     - cwd: /vagrant/
     - user: vagrant
     - group: vagrant

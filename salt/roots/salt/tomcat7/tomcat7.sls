@@ -13,7 +13,8 @@ tomcat7:
     - name: tomcat7
     - watch:
       - file: /etc/tomcat7/server.xml
-      
+
+server.xml:
   file.managed:
     - name: /etc/tomcat7/server.xml
     - source: salt://tomcat7/server.xml
@@ -23,15 +24,25 @@ tomcat7:
     - require:
       - pkg: tomcat7
 
+catalina.sh:
+  file.managed:
+    - name: /usr/share/tomcat7/bin/catalina.sh
+    - source: salt://tomcat7/catalina.sh
+    - user: root
+    - group: root
+    - mode: 777
+    - require:
+      - pkg: tomcat7
+
 tomcat_configuration:
   file.append:
     - name: /etc/default/tomcat7
     - text: JAVA_HOME="/usr/lib/jvm/java-7-oracle"
 
-tomcat_cmshomeconfig:
-      file.append:
-        - name: /usr/share/tomcat7/bin/catalina.sh
-        - text: export JAVA_OPTS="-Xmx1024m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms/home"
+#tomcat_cmshomeconfig:
+#      file.append:
+#        - name: /usr/share/tomcat7/bin/catalina.sh
+#        - text: export JAVA_OPTS="-Xmx1024m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms/home"
 
 getdbdriver:
     cmd.run:

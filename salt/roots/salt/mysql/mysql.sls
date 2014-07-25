@@ -1,3 +1,15 @@
+#my.cnf:
+#  file.managed:
+#    - name: /etc/mysql/my.cnf
+#    - source: salt://mysql/my.cnf
+#    - user: root
+#    - group: root
+#    - mode: 644
+#    - require:
+#      - pkg: mysql-client
+#      - pkg: mysql-server
+#      - pkg: python-mysqldb
+
 mysql-client:
   pkg.installed
 
@@ -28,7 +40,6 @@ cmsuser:
 cmsdb:
   mysql_database.present:
     - character_set: utf8
-    - lower_case_table_names : 1
     - collate: utf8_danish_ci
     - require:
       - pkg: python-mysqldb
