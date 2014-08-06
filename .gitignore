@@ -6,7 +6,8 @@
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -301,3 +302,5 @@ nb-configuration.xml
 .cvsignore
 */.cvsignore
 
+
+cms.home/

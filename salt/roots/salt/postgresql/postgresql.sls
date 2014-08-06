@@ -13,15 +13,35 @@ postgresql:
         - name: postgresql-9.1
     service.running:
         - enable: True
-        - watch:
+        - watch: 
             - file: /etc/postgresql/9.1/main/pg_hba.conf
-        - require:
+        - require: 
             - pkg: postgresql-9.1
 
-postgresql-8.1-dbg:
+postgresql-9.1-dbg:
     pkg.installed:
         - name: postgresql-9.1-dbg
 
 postgresql-server-dev-9.1:
     pkg.installed:
         - name: postgresql-server-dev-9.1
+
+postgres_user:
+    postgres_user.present:
+        - name: cmsuser
+        - password: password
+        - runas: postgres
+        - require:
+            - service: postgresql
+
+cmsdb:
+    postgres_database.present:
+        - name: cms
+        - encoding: UTF8
+        - lc_ctype: en_US.UTF8
+        - lc_collate: en_US.UTF8
+        - template: template0
+        - owner: cmsuser
+        - runas: postgres
+        - require:
+            - postgres_user: cmsuser

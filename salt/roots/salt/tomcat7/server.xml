@@ -14,44 +14,20 @@
         <Engine name="catalina" defaultHost="localhost">
 
             <!-- Localhost configuration. -->
-            <Host name="localhost" unpackWARs="true" autoDeploy="false" deployOnStartup="false">
-
-<!--
+            <Host name="localhost" unpackWARs="false" autoDeploy="false" deployOnStartup="false">
 
                 <Context path="/" docBase="/var/lib/tomcat7/webapps/ROOT.war">
-
-                    <Resource name="jdbc/cms" auth="Container" type="javax.sql.DataSource" maxActive="100" maxIdle="30"
-                              maxWait="10000"
-                              username="cmsuser" password="password" driverClassName="com.mysql.jdbc.Driver"
-                              url="jdbc:mysql://localhost:3306/cmsdb" />
-                </Context>
--->
-
-
-                <Context path="/" docBase="/var/lib/tomcat7/webapps/ROOT.war">
-                    <!--<Resource name="jdbc/cms"
+                    <Resource name="jdbc/cms"
                               auth="Container"
                               type="javax.sql.DataSource"
                               maxActive="100"
                               maxIdle="30"
                               maxWait="10000"
-                              username="cms"
+                              username="cmsuser"
                               password="password"
                               driverClassName="org.postgresql.Driver"
-                              url="jdbc:postgresql://dbserver/cms"/>-->
-<!--
-                    <Resource name="jdbc/cms" auth="Container" type="javax.sql.DataSource" maxActive="100" maxIdle="30" maxWait="10000"
-                              username="sa" password="sa" driverClassName="org.h2.Driver" url="jdbc:h2:${catalina.home}/cmsdb"/>-->
-
-                    <Resource name="jdbc/cms" auth="Container" type="javax.sql.DataSource" maxActive="100" maxIdle="30"
-                              maxWait="10000"
-                              username="cmsuser" password="password" driverClassName="com.mysql.jdbc.Driver"
-                              url="jdbc:mysql://localhost:3306/cmsdb" />
-
-
+                              url="jdbc:postgresql://localhost:5432/cms"/>
                 </Context>
-
-
             </Host>
 
         </Engine>

@@ -1,7 +1,10 @@
 #!/bin/sh
-export JAVA_OPTS="-Xmx1024m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms/home"
+export JAVA_OPTS="-XX:PermSize=64m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms.home"
+export CATALINA_OPTS="-Xms1024M -Xmx2048M"
 
-#export JAVA_OPTS="-Xmx1024m -Djava.net.preferIPv4Stack=true -Dcms.home=/vagrant/cms/home"
+
+
+
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
 # this work for additional information regarding copyright ownership.
