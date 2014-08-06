@@ -2,9 +2,8 @@
 
 This might become the first open source vagrant/saltstack base box for enonic cms.
 
-Original Readme:
+This box is a starting point for new Enonic projects. This box has been tested on OSX, it should work on Linux and it might work on Windows.
 
-This box is a starting point for new projects. This box has been tested on OSX, it should work on Linux and it might work on Windows.
 
 ## Prerequisites
 
@@ -21,23 +20,18 @@ These are things you need to install once on your machine to use this box.
 To start a new project run:
 
 ```bash
-curl https://raw.github.com/nhhagen/vagrant-dev-box/master/setup.sh | bash -s <new repo url> <dir>
+git clone https://github.com/adamhaeger/vagrant-enonic-cms-box.git
+cd vagrant-enonic-cms-box
+vagrant up
 ```
 
-Only one project member needs to do this.
+## Known issue
 
-If you want a simple command at hand to start new projects off this box run:
-
-__#!/bin/bash__
+After the box has been provisioned the first time, tomcat will fail to restart. Therefore:
 
 ```bash
-echo "function newproject { curl https://raw.github.com/nhhagen/vagrant-dev-box/master/setup.sh | bash -s $@ ; }" >> ~/.bash_profile && source ~/.bash_profile
-```
-
-You can now run:
-
-```bash
-newproject <new repo url> <div>
+vagrant ssh 
+sudo service tomcat7 restart
 ```
 
 [SaltStack](http://www.saltstack.com/community/) is used to install software to change what is installed have a look at the
@@ -87,10 +81,6 @@ This will shutdown the virtual machine.
 
 ## Tools
 
-* yo
-    * generator-angular
-    * generator-ember
-    * generator-webapp
 * grunt
 * bower
 * compass
