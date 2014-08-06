@@ -48,12 +48,6 @@ port open the `Vagrantfile` a line like this:
 config.vm.network :forwarded_port, guest: <port nr>, host: <port nr>
 ```
 
-Each project menber can now clone the new repo
-
-```bash
-git clone --recursive <repo url>
-```
-
 # Starting the box
 
 ```bash
