@@ -1,7 +1,5 @@
 # Vagrant Enonic CMS box
 
-This might become the first open source vagrant/saltstack base box for enonic cms.
-
 This box is a starting point for new Enonic projects. This box has been tested on OSX, it should work on Linux and it might work on Windows.
 
 It will install and provision an Ubuntu box with the complete java stack, set up your database with postgreSQL, install db drivers, download enonic CMS and setup all your environment variables. It will also install common node tools (Bower, grunt, less etc).
